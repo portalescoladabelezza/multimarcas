@@ -20,7 +20,13 @@ export default function TopBioLinkPromo() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Banner container with golden outline and premium look */}
-        <div className="relative rounded-3xl bg-zinc-950 border border-gold-500/30 p-8 sm:p-14 overflow-hidden shadow-2xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7 }}
+          className="relative rounded-3xl bg-zinc-950 border border-gold-500/30 p-8 sm:p-14 overflow-hidden shadow-2xl"
+        >
           
           {/* Absolute corner decorative ribbon */}
           <div className="absolute top-0 right-0 overflow-hidden w-40 h-40">
@@ -105,7 +111,7 @@ export default function TopBioLinkPromo() {
 
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

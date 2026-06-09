@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageSquareText, Sparkles, Tag, Link as LinkIcon, Laptop, Smartphone, Zap } from 'lucide-react';
+import { ArrowRight, MessageSquareText, Sparkles, Zap } from 'lucide-react';
 import { storeConfig } from '../config';
 import { motion } from 'motion/react';
 
@@ -35,17 +35,6 @@ export default function Hero() {
           {/* Hero Content Column (7 cols on desktop) */}
           <div className="lg:col-span-7 flex flex-col space-y-6 text-left">
             
-            {/* Minimal Multibrand Tag */}
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex self-start items-center gap-2 px-3 py-1 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-500 text-xs font-semibold uppercase tracking-widest"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Plano Essencial Top Bio Link</span>
-            </motion.div>
-
             {/* Title */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -94,54 +83,6 @@ export default function Hero() {
                 <MessageSquareText className="w-4 h-4 text-emerald-400" />
                 Chamar no WhatsApp
               </button>
-            </motion.div>
-
-            {/* Decorative Mini Cards/Badges Row representing exactly what basic plan delivers */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-3 pt-10 border-t border-zinc-900 mt-8"
-            >
-              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-zinc-900/30 border border-zinc-900">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gold-500/10 text-gold-500 shrink-0 mt-0.5">
-                  <Tag className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-white text-xs font-bold leading-tight">Até 8 produtos</p>
-                  <p className="text-zinc-500 text-[10px]">Vitrine em destaque</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-zinc-900/30 border border-zinc-900">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gold-500/10 text-gold-500 shrink-0 mt-0.5">
-                  <MessageSquareText className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-white text-xs font-bold leading-tight">Pedido no Zap</p>
-                  <p className="text-zinc-500 text-[10px]">Links direto no item</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-zinc-900/30 border border-zinc-900">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gold-500/10 text-gold-500 shrink-0 mt-0.5">
-                  <LinkIcon className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-white text-xs font-bold leading-tight">Pronto para bio</p>
-                  <p className="text-zinc-500 text-[10px]">Instagram e Redes</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-zinc-900/30 border border-zinc-900">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gold-500/10 text-gold-500 shrink-0 mt-0.5">
-                  <Laptop className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-white text-xs font-bold leading-tight">Site Responsivo</p>
-                  <p className="text-zinc-500 text-[10px]">Celular e Desktop</p>
-                </div>
-              </div>
             </motion.div>
 
           </div>
@@ -230,25 +171,6 @@ export default function Hero() {
                 </div>
 
               </div>
-            </motion.div>
-
-            {/* Overlay floating micro-tag indicators */}
-            <motion.div 
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-4 right-1/10 bg-zinc-900/90 border border-gold-500/40 text-white rounded-xl py-2 px-3 shadow-2xl flex items-center gap-2 z-20"
-            >
-              <div className="w-2 h-2 rounded-full bg-gold-500 animate-ping"></div>
-              <span className="text-[10px] font-bold tracking-wider uppercase text-gold-100">Vitrine Virtual</span>
-            </motion.div>
-
-            <motion.div 
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-6 -left-4 bg-zinc-900/90 border border-zinc-800 text-white rounded-xl py-2.5 px-3.5 shadow-2xl flex items-center gap-2 z-20"
-            >
-              <span className="text-emerald-400">⚡</span>
-              <span className="text-[10px] font-bold text-zinc-300">Foco em Conversão</span>
             </motion.div>
 
           </div>

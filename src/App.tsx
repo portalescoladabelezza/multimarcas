@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Benefits from './components/Benefits';
+import Testimonials from './components/Testimonials';
 import ProductShowcase from './components/ProductShowcase';
 import AboutSection from './components/AboutSection';
 import CTASection from './components/CTASection';
@@ -18,8 +18,8 @@ export default function App() {
         {/* Dynamic first fold hero with visual CSS smartphone */}
         <Hero />
 
-        {/* Seamless 3 step commercial benefits explanation */}
-        <Benefits />
+        {/* Premium client reviews regarding accessory selections */}
+        <Testimonials />
 
         {/* Statefull interactive category filter and product catalog */}
         <ProductShowcase />

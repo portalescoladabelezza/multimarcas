@@ -36,7 +36,13 @@ export default function ProductShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-[10px] uppercase tracking-widest font-bold text-gold-500 bg-gold-500/10 px-3 py-1.5 rounded-full" id="categorias">
             Coleções Ativas
           </span>
@@ -47,10 +53,16 @@ export default function ProductShowcase() {
           <p className="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed">
             Confira alguns itens selecionados disponíveis em nossa loja. Escolha sua peça e chame nossa equipe para fechar seu pedido.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter Navigation (Categories Section) */}
-        <div className="flex flex-wrap justify-center items-center gap-3 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap justify-center items-center gap-3 mb-12"
+        >
           {categories.map((category) => {
             const isActive = selectedCategory === category;
             return (
@@ -68,7 +80,7 @@ export default function ProductShowcase() {
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Grid of Products (Section 5) */}
         <motion.div 
@@ -107,6 +119,19 @@ export default function ProductShowcase() {
                     {/* Dark gradient shadow inside photo footer */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
 
+                    {/* Hover Preview Overlay */}
+                    <button
+                      onClick={() => setActiveProductModal(product)}
+                      className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 cursor-pointer"
+                      title="Ver detalhes do produto"
+                      id={`btn-view-overlay-${product.id}`}
+                    >
+                      <span className="inline-flex items-center gap-2 px-4 py-2.5 bg-black/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider rounded-xl border border-gold-500/20 shadow-xl transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
+                        <Eye className="w-4 h-4 text-gold-500" />
+                        Visualizar
+                      </span>
+                    </button>
+                    
                     {/* Badge top-left */}
                     {product.badge && (
                       <div className={`absolute top-4 left-4 px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-wider shadow-md ${
@@ -122,19 +147,6 @@ export default function ProductShowcase() {
                       </div>
                     )}
 
-                    {/* Secondary click helper overlay */}
-                    <button
-                      onClick={() => setActiveProductModal(product)}
-                      className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      title="Ver detalhes"
-                      id={`btn-view-overlay-${product.id}`}
-                    >
-                      <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-black/90 backdrop-blur-md text-white text-xs font-semibold rounded-lg border border-white/10 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        <Eye className="w-3.5 h-3.5" />
-                        Detalhes do Item
-                      </span>
-                    </button>
-                    
                     {/* Category overlay label */}
                     <div className="absolute bottom-3 left-4 text-zinc-400 text-[10px] font-mono uppercase tracking-wider">
                       {product.category}
@@ -161,25 +173,15 @@ export default function ProductShowcase() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-2 pt-2 border-t border-zinc-800/40">
-                      {/* Secondary Info/Sheet button */}
-                      <button
-                        onClick={() => setActiveProductModal(product)}
-                        className="col-span-1.5 flex items-center justify-center p-2.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white rounded-lg transition-colors border border-zinc-800"
-                        title="Ver ficha técnica"
-                        id={`btn-product-sheet-${product.id}`}
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-
+                    <div className="pt-3 border-t border-zinc-800/40">
                       {/* Direct Buy button */}
                       <button
                         onClick={() => handleWhatsAppRedirect(product.name)}
-                        className="col-span-3.5 inline-flex items-center justify-center gap-1.5 p-2.5 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-xs font-extrabold uppercase tracking-wide rounded-lg shadow-lg shadow-emerald-500/5 transition-all transform active:scale-95"
+                        className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-xs font-extrabold uppercase tracking-widest rounded-xl shadow-lg shadow-emerald-500/10 transition-all transform active:scale-[0.98] whitespace-nowrap"
                         id={`btn-product-buy-${product.id}`}
                       >
-                        <MessageSquareText className="w-4 h-4" />
-                        Pedir pelo Zap
+                        <MessageSquareText className="w-4 h-4 shrink-0" />
+                        Comprar pelo WhatsApp
                       </button>
                     </div>
 

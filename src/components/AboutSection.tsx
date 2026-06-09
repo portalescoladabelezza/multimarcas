@@ -21,7 +21,13 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Block: Image Collage / Visual element representing fashion catalog (5 columns) */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 relative flex justify-center items-center"
+          >
             
             {/* Elegant luxury framing */}
             <div className="absolute -inset-4 border border-gold-500/10 rounded-2xl transform rotate-3"></div>
@@ -49,10 +55,16 @@ export default function AboutSection() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Right Block: Content area (7 columns) */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-7 space-y-8 text-left"
+          >
             
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-widest font-bold text-gold-500 bg-gold-500/10 px-3 py-1.5 rounded-full inline-block">
@@ -97,7 +109,7 @@ export default function AboutSection() {
               })}
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>
