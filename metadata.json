@@ -1,0 +1,6 @@
+{
+  "name": "Hype Concept",
+  "description": "Vitrine virtual premium para lojas multimarcas de roupas, calçados e acessórios. Encomende diretamente pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
